@@ -219,8 +219,6 @@ public class oop {
     }
     
     /* Second operation's sub menu: */
-    /* Matrix Operations method is only declared to create a sub menu for matrix operations as an example. 
-     * Operation numbers can be changed, cases are only examples. Matrix methods are not added obviously. */
     private static void matrixOperationsMenu(Scanner matrices) {
         int choice;
         
