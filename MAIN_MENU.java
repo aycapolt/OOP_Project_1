@@ -1,5 +1,3 @@
-// Main menu is structured with ASCII and 5 options (Statistics method is completely added) as a base.
-
 package oop;
 
 import java.util.Arrays;
@@ -219,154 +217,39 @@ public class oop {
     }
     
     /* Second operation's sub menu: */
+    /* Matrix Operations method is only declared to create a sub menu for matrix operations as an example. 
+     * Operation numbers can be changed, cases are only examples. Matrix methods are not added obviously. */
     private static void matrixOperationsMenu(Scanner matrices) {
-        int choice;
-        
+        String choice_matrix;
         do {
-            clearScreen(); // Clears the screen.
-            // Displays the menu options to the user.
-            System.out.println("       MATRIX OPERATIONS MENU       ");
-            System.out.println("\n1. Transpose");
-            System.out.println("2. Inverse");
-            System.out.println("3. Matrix Multiplication");
-            System.out.println("4. Element-wise Multiplication");
-            System.out.println("5. Return to Main Menu");
-            System.out.print("\nChoose an option (1-5): ");
-
-            choice = getValidInteger(scanner); // Gets a valid option from the user.
-
-            if (choice == 5) { // Exit to main menu.
-                System.out.println("Returning to main menu...");
-                break;
-            }
-
-            clearScreen(); // Clears the screen and provides information about the selected operation.
-            switch (choice) { // Displays information based on the user's choice.
-                case 1:
-                    System.out.println("       TRANSPOSE OF A MATRIX       ");
+            System.out.printf("%nMatrix Operations Submenu:%n");
+            System.out.printf("[1] Add two matrices%n");
+            System.out.printf("[2] Multiply two matrices%n");
+            System.out.printf("[B] Back to Main Menu%n");
+            System.out.print("Enter your choice: ");
+            choice_matrix = matrices.next().toUpperCase();
+            
+            
+            /* for the user to choose which operation they want to do, switch case is used. also,
+             * as B is to indicate the turn to the main menu, if the choice is not B, the sub menu will continue to appear after every operation
+             * till the user decides that it is enough. 
+             */
+            switch (choice_matrix) {
+                case "1":
+                    //add addition or etc.
+                    System.out.printf("Matrix addition selected.");
                     break;
-                case 2:
-                    System.out.println("       INVERSE OF A MATRIX         ");
+                case "2":
+                    //add multiplication or etc.
+                    System.out.printf("Matrix multiplication selected.");
                     break;
-                case 3:
-                    System.out.println("       MATRIX MULTIPLICATION       ");
-                    break;
-                case 4:
-                    System.out.println("   ELEMENT-WISE MATRIX MULTIPLICATION   ");
-                    break;
-            }
-			
-			
-			System.out.println("\n====================================");
-            System.out.print("Enter the number of rows: ");
-            int rows = getValidInteger(scanner); // Gets the number of rows for the matrix.
-            System.out.print("Enter the number of columns: ");
-            int cols = getValidInteger(scanner); // Gets the number of columns for the matrix.
-
-            double[][] matrix1 = new double[rows][cols]; // Creates the first matrix.
-            System.out.println("Enter elements of the matrix:");
-            for (int i = 0; i < rows; i++) { // Gets the elements of the matrix from the user.
-                for (int j = 0; j < cols; j++) {
-                    System.out.print("Element (" + (i + 1) + ", " + (j + 1) + "): ");
-                    matrix1[i][j] = getValidDouble(scanner); // Ensures a valid number is entered.
-                }
-            }
-
-            switch (choice) { // Performs the operation based on the user's choice.
-                case 1:
-                    clearScreen(); // Clears the screen.
-                    System.out.println("       TRANSPOSE RESULT            ");
-                    double[][] transposed = transpose(matrix1); // Computes the transpose of the matrix.
-                    System.out.println("Original Matrix:");
-                    printMatrix(matrix1); // Prints the original matrix.
-                    System.out.println("Transposed Matrix:");
-                    printMatrix(transposed); // Prints the transposed matrix.
-                    break;
-                case 2:
-                    clearScreen(); // Clears the screen.
-                    if (rows != cols) { // Checks if the matrix is square for inverse calculation.
-                        System.out.println("       INVERSE ERROR               ");
-                        System.out.println("\nInverse can only be found for square matrices.");
-                    } else {
-                        double[][] inverse = inverse(matrix1); // Computes the inverse of the matrix.
-                        if (inverse == null) { // If the matrix is singular, it cannot be inverted.
-                            System.out.println("       INVERSE ERROR               ");
-                            System.out.println("\nMatrix is singular and cannot be inverted.");
-                        } else {
-                            System.out.println("       INVERSE RESULT              ");
-                            System.out.println("\nOriginal Matrix:");
-                            printMatrix(matrix1); // Prints the original matrix.
-                            System.out.println("\nInverse Matrix:");
-                            printMatrix(inverse); // Prints the inverse matrix.
-                        }
-                    }
-                    break;
-                case 3:
-                    clearScreen(); // Clears the screen.
-                    System.out.print("\nEnter the number of rows for the second matrix: ");
-                    int rows2 = getValidInteger(scanner); // Gets the number of rows for the second matrix.
-                    System.out.print("Enter the number of columns for the second matrix: ");
-                    int cols2 = getValidInteger(scanner); // Gets the number of columns for the second matrix.
-                    if (cols != rows2) {
-                        System.out.println("   MATRIX MULTIPLICATION ERROR     ");
-                        System.out.println("\nNumber of columns of the first matrix must equal the number of rows of the second matrix.");
-                    } else {
-                        double[][] matrix2 = new double[rows2][cols2]; // Creates the second matrix.
-                        System.out.println("Enter elements of the second matrix:");
-                        for (int i = 0; i < rows2; i++) { // Gets the elements of the second matrix.
-                            for (int j = 0; j < cols2; j++) {
-                                System.out.print("Element (" + (i + 1) + ", " + (j + 1) + "): ");
-                                matrix2[i][j] = getValidDouble(scanner); // Ensures a valid number is entered.
-                            }
-                        }
-                        System.out.println("\nResult of Matrix Multiplication:");
-                        double[][] product = multiplyMatrices(matrix1, matrix2); // Computes the product of the two matrices.
-                        System.out.println("       MULTIPLICATION RESULT       ");
-                        System.out.println("\nFirst Matrix:");
-                        printMatrix(matrix1); // Prints the first matrix.
-                        System.out.println("Second Matrix:");
-                        printMatrix(matrix2); // Prints the second matrix.
-                        System.out.println("Product Matrix:");
-                        printMatrix(product); // Prints the product matrix.
-                    }
-                    break;
-                case 4:
-                    clearScreen(); // Clears the screen.
-                    System.out.print("\nEnter the number of rows for the second matrix: ");
-                    int rows3 = getValidInteger(scanner); // Gets the number of rows for the second matrix.
-                    System.out.print("Enter the number of columns for the second matrix: ");
-                    int cols3 = getValidInteger(scanner); // Gets the number of columns for the second matrix.
-                    if (rows != rows3 || cols != cols3) {
-                        System.out.println("   ELEMENT-WISE MULTIPLICATION ERROR");
-                        System.out.println("\nMatrices must have the same dimensions for element-wise multiplication.");
-                    } else {
-                        double[][] matrix3 = new double[rows3][cols3]; // Creates the second matrix.
-                        System.out.println("Enter elements of the second matrix:");
-                        for (int i = 0; i < rows3; i++) { // Gets the elements of the second matrix.
-                            for (int j = 0; j < cols3; j++) {
-                                System.out.print("Element (" + (i + 1) + ", " + (j + 1) + "): ");
-                                matrix3[i][j] = getValidDouble(scanner); // Ensures a valid number is entered.
-                            }
-                        }
-                        System.out.println("\nResult of Element-wise Multiplication:");
-                        double[][] elementWiseProduct = elementWiseMultiply(matrix1, matrix3); // Computes element-wise multiplication.
-                        System.out.println("ELEMENT-WISE MULTIPLICATION RESULT ");
-                        System.out.println("\nFirst Matrix:");
-                        printMatrix(matrix1); // Prints the first matrix.
-                        System.out.println("Second Matrix:");
-                        printMatrix(matrix3); // Prints the second matrix.
-                        System.out.println("Element-wise Multiplication Result:");
-                        printMatrix(elementWiseProduct); // Prints the element-wise multiplication result.
-                    }
+                case "B":
+                    System.out.printf("Returning to Main Menu...%n");
                     break;
                 default:
-                    System.out.println("\nInvalid choice. Try again."); // Shows an error message for invalid choices.
-                    break;
+                    System.out.printf("Invalid option. Please try again.%n");
             }
-            System.out.println("\nPress Enter to return to the menu...");
-            scanner.nextLine(); // Waits for the user to press Enter to return to the menu.
-            scanner.nextLine();
-        } while (choice != 5);
+        } while (!choice_matrix.equals("B"));
     }
 
     /* Third operation's sub menu*/
