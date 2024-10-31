@@ -1,3 +1,5 @@
+//This is the structure of the application. Operations will be added here, Statistics are already added. Full application will also be added as a seperate file. 
+
 package oop;
 
 import java.util.Arrays;
