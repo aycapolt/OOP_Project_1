@@ -2,7 +2,7 @@ import java.util.scanner;
 
 public class textEncryptionDecryption {
 
-    private static void textEncryptionMenu(Scanner input) {
+    public static void textEncryptionMenu(Scanner input) {
         int shiftvalue;
         int selection;
         String newstr;
