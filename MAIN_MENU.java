@@ -115,7 +115,7 @@ public class oop {
 	/* First operation's sub menu: */
 	/* This method is added and it is the first sub-menu. It does not return anything, so the matrix operations' methods are declared outside of this method. 
 	 * the method here is only to declare the sub-menu and get the user input.*/
-    private static void statisticsMenu(Scanner arrays) {
+    public static void statisticsMenu(Scanner arrays) {
         System.out.print("Enter the number of elements you want in the array: ");
         int n;
         while (true) {
@@ -159,7 +159,7 @@ public class oop {
 
     // Arithmetic Mean = (1/n) * Σx_i;
     // Where n is the number of observations and x_i are the values in the sample;
-    private static double arithmeticMean(double[] array) {
+    public static double arithmeticMean(double[] array) {
         double sum = 0;
      // Iterating through each value in the array and adding it to the sum;
         for (double v : array) sum += v;
@@ -168,7 +168,7 @@ public class oop {
 
     // If n is odd: Median = x((n+1)/2);
     // If n is even: Median = (x(n/2) + x(n/2 + 1)) / 2;
-    private static double calculateMedian(double[] array) {
+    public static double calculateMedian(double[] array) {
         Arrays.sort(array);
         int middle = array.length / 2;
      // Checking if the number of elements in the array is even;
@@ -211,7 +211,7 @@ public class oop {
 
     // Harmonic Mean = n / (Σ(1/x_i))
     // Where n is the number of observations and x_i are the values in the sample;
-    private static double harmonicMean(double[] array, int index) {
+    public static double harmonicMean(double[] array, int index) {
         if (index == 0) return array.length / array[0];
 
         // Harmonic Mean = n / (1/x_1 + 1/x_2 + ... + 1/x_n), the following line indicates the recursiveness. 
@@ -257,7 +257,7 @@ public class oop {
     /* Third operation's sub menu*/
     /* This method is only declared to create a sub menu as an example like the matrix operations. 
      * Operation numbers can be changed, cases are only examples. Methods are not declared.. */
-    private static void textEncryptionMenu(Scanner texts) {
+    public static void textEncryptionMenu(Scanner texts) {
         String choice_text;
         do {
             System.out.printf("%nText Encryption/Decryption Submenu:%n");
@@ -288,7 +288,7 @@ public class oop {
     }
 
     /* Fourth operation's sub menu*/
-    private static void ticTacToeMenu(Scanner game) {
+    public static void ticTacToeMenu(Scanner game) {
         System.out.printf("Starting Tic-tac-toe game...");
         //ADD TIKTOKTOE GAME HERE
     }
