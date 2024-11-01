@@ -8,7 +8,7 @@ public class statistics {
 	/* First operation's sub menu: */
 	/* This method is added and it is the first sub-menu. It does not return anything, so the matrix operations' methods are declared outside of this method. 
 	 * the method here is only to declare the sub-menu and get the user input.*/
-    private static void statisticsMenu(Scanner arrays) {
+    public static void statisticsMenu(Scanner arrays) {
         System.out.print("Enter the number of elements you want in the array: ");
         int n;
         while (true) {
@@ -52,7 +52,7 @@ public class statistics {
 
     // Arithmetic Mean = (1/n) * Σx_i;
     // Where n is the number of observations and x_i are the values in the sample;
-    private static double arithmeticMean(double[] array) {
+    public static double arithmeticMean(double[] array) {
         double sum = 0;
      // Iterating through each value in the array and adding it to the sum;
         for (double v : array) sum += v;
@@ -61,7 +61,7 @@ public class statistics {
 
     // If n is odd: Median = x((n+1)/2);
     // If n is even: Median = (x(n/2) + x(n/2 + 1)) / 2;
-    private static double calculateMedian(double[] array) {
+    public static double calculateMedian(double[] array) {
         Arrays.sort(array);
         int middle = array.length / 2;
      // Checking if the number of elements in the array is even;
@@ -76,7 +76,7 @@ public class statistics {
     
     // Geometric Mean = (Πx_i)^(1/n);
     // Where n is the number of observations and x_i are the values in the sample;
-    private static double geometricMean(double[] array) {
+    public static double geometricMean(double[] array) {
     	double product = 1.0; // Declaring product to be 1;
         // Looping through each value in the array;
         for (double v : array) {
@@ -104,7 +104,7 @@ public class statistics {
 
     // Harmonic Mean = n / (Σ(1/x_i))
     // Where n is the number of observations and x_i are the values in the sample;
-    private static double harmonicMean(double[] array, int index) {
+    public static double harmonicMean(double[] array, int index) {
         if (index == 0) return array.length / array[0];
 
         // Harmonic Mean = n / (1/x_1 + 1/x_2 + ... + 1/x_n), the following line indicates the recursiveness. 
