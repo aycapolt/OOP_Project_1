@@ -62,7 +62,7 @@ public class TicTacToe {
         scanner.close();
     }
 
-    private static void initializeBoard() {
+    public static void initializeBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 board[i][j] = EMPTY;
@@ -70,7 +70,7 @@ public class TicTacToe {
         }
     }
 
-    private static void printBoard() {
+    public static void printBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print(board[i][j]);
@@ -85,7 +85,7 @@ public class TicTacToe {
         return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == EMPTY;
     }
 
-    private static boolean checkWinner(char player) {
+    public static boolean checkWinner(char player) {
         // Check rows, cols and diagonals
         return (board[0][0] == player && board[0][1] == player && board[0][2] == player) || // row1
                (board[1][0] == player && board[1][1] == player && board[1][2] == player) || // row2
@@ -109,7 +109,7 @@ public class TicTacToe {
         return true;
     }
 
-    private static int getInput(String message) {
+    public static int getInput(String message) {
         int input;
         while (true) {
             System.out.print(message);
